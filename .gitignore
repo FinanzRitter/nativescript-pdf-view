@@ -13,3 +13,5 @@ demo/platforms
 demo/node_modules
 demo/.migration_backup
 node_modules
+publish/src
+publish/package
