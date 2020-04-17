@@ -1,10 +1,16 @@
-[![Build Status](https://travis-ci.org/madmas/nativescript-pdf-view.svg?branch=master)](https://travis-ci.org/madmas/nativescript-pdf-view)
-
-[![npm version](https://badge.fury.io/js/nativescript-pdf-view.svg)](https://badge.fury.io/js/nativescript-pdf-view)
-
 # NativeScript PDFView
 
-> *Remark* [This repository](https://github.com/madmas/nativescript-pdf-view) is a fork of [the original by Merott](https://github.com/Merott/nativescript-pdf-view) that will be used with his consent to provide further maintenance of this NativeScript plugin.
+[![npm](https://img.shields.io/npm/v/@finanzritter/nativescript-pdf-view.svg)](https://www.npmjs.com/package/@finanzritter/nativescript-pdf-view)
+[![npm](https://img.shields.io/npm/dt/@finanzritter/nativescript-pdf-view.svg?label=npm%20downloads)](https://www.npmjs.com/package/@finanzritter/nativescript-pdf-view)
+
+:construction: **Work in progress**
+
+This package was forked from the unmaintained package
+[madmas/nativescript-pdf-view](https://github.com/madmas/nativescript-pdf-view) which in turn is a
+fork of [Merott/nativescript-pdf-view](https://github.com/Merott/nativescript-pdf-view). We are
+currently cleaning up and updating the code.
+
+---
 
 A minimal PDF view implementation that does only one thing, and that is to display PDF files in the simplest way possible. It conveniently uses the iOS `WKWebView`, and for Android it uses [`AndroidPdfViewer`](https://github.com/barteksc/AndroidPdfViewer).
 
@@ -55,3 +61,8 @@ There are sample applications avalable:
 * *Plain TypeScript*: see [demo/](https://github.com/madmas/nativescript-pdf-view/tree/master/demo) folder in this repository
 * *NativeScript+Angular*: [nativescript-pdf-view-angular-sample](https://github.com/madmas/nativescript-pdf-view-angular-sample) repository
 * *NativeScript+VueJs*:  [nativescript-pdf-view-vue-sample](https://github.com/madmas/nativescript-pdf-view-vue-sample) repository
+
+## Credits
+
+- **@Merott**: for being the original author of this plugin [Merott/nativescript-pdf-view](https://github.com/Merott/nativescript-pdf-view)
+- **@madmas**: for maintaining it [madmas/nativescript-pdf-view](https://github.com/madmas/nativescript-pdf-view)
