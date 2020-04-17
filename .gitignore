@@ -2,7 +2,6 @@
 *.js
 *.js.map
 *.log
-!.cz-config.js
 !scripts/*.js
 demo/app/*.js
 !demo/karma.conf.js
