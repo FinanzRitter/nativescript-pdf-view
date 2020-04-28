@@ -1,6 +1,6 @@
 {
   "name": "@finanzritter/nativescript-pdf-view",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "A basic PDF viewer plugin for NativeScript, to display PDF documents on iOS and Android.",
   "main": "pdf-view",
   "typings": "index.d.ts",
@@ -12,16 +12,17 @@
   },
   "scripts": {
     "build": "tsc",
-    "demo.ios": "npm run preparedemo && cd demo && tns run ios --emulator",
-    "demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
-    "demo.android": "npm run preparedemo && cd demo && tns run android --emulator",
+    "demo.ios": "npm run preparedemo && cd ../demo && tns run ios --emulator",
+    "demo.ios.device": "npm run preparedemo && cd ../demo && tns run ios",
+    "demo.android": "npm run preparedemo && cd ../demo && tns run android --emulator",
+    "demo.android.device": "npm run preparedemo && cd ../demo && tns run android",
     "lint": "tslint --project tsconfig.json -t stylish",
-    "test.ios": "cd demo && tns test ios --emulator",
-    "test.ios.device": "cd demo && tns test ios",
-    "test.android": "cd demo && tns test android",
-    "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-pdf-view && tns plugin add .. && tns install",
+    "test.ios": "cd ../demo && tns test ios --emulator",
+    "test.ios.device": "cd ../demo && tns test ios",
+    "test.android": "cd ../demo && tns test android",
+    "preparedemo": "npm run build && cd ../demo && tns plugin remove @finanzritter/nativescript-pdf-view && tns plugin add ../src && tns install",
     "prepare": "npm run build",
-    "setup": "npm ci && cd demo && npm ci && cd .. && npm run build && cd demo && tns plugin add .. && cd .."
+    "setup": "npm ci && cd ../demo && npm ci && cd ../src && npm run build && cd ../demo && tns plugin add ../src && cd ../src"
   },
   "repository": {
     "type": "git",

@@ -28,8 +28,8 @@ export abstract class PDFViewCommon extends View {
 }
 
 export const enableAnnotationRenderingProperty = new Property<PDFViewCommon, boolean>({
-  name: 'enableAnnotationRendering',
   defaultValue: false,
+  name: 'enableAnnotationRendering',
 });
 enableAnnotationRenderingProperty.register(PDFViewCommon);
 

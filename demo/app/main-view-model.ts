@@ -1,5 +1,5 @@
 import { Observable } from 'data/observable';
-import { PDFView } from 'nativescript-pdf-view';
+import { PDFView } from '@finanzritter/nativescript-pdf-view';
 
 export class MainViewModel extends Observable {
   public pdfUrls = [
