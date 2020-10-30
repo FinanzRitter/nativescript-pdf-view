@@ -1,6 +1,4 @@
-import * as app from 'tns-core-modules/application';
-import { Property, View } from 'tns-core-modules/ui/core/view';
-import * as dialogs from 'tns-core-modules/ui/dialogs';
+import { Property, View } from '@nativescript/core';
 
 export abstract class PDFViewCommon extends View {
   public static loadEvent = 'load';

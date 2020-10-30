@@ -1,5 +1,4 @@
-import { Observable } from 'data/observable';
-import { PDFView } from '@finanzritter/nativescript-pdf-view';
+import { Observable } from '@nativescript/core';
 
 export class MainViewModel extends Observable {
   public pdfUrls = [
@@ -23,5 +22,4 @@ export class MainViewModel extends Observable {
   }
 
   private current = 0;
-  private enableAnnotationRendering = true;
 }
