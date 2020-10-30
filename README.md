@@ -21,7 +21,7 @@ My aim is to keep the features consistent across iOS and Android.
 ## Installation
 
 ```
-tns plugin add nativescript-pdf-view
+tns plugin add @finanzritter/nativescript-pdf-view
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ tns plugin add nativescript-pdf-view
 ```xml
 <Page
   xmlns="http://schemas.nativescript.org/tns.xsd"
-  xmlns:pdf="nativescript-pdf-view"
+  xmlns:pdf="@finanzritter/nativescript-pdf-view"
   loaded="pageLoaded">
   <pdf:PDFView src="{{ pdfUrl }}" load="{{ onLoad }}" />
 </Page>
@@ -40,7 +40,7 @@ tns plugin add nativescript-pdf-view
 ### Angular NativeScript
 
 ```ts
-import { PDFView } from 'nativescript-pdf-view';
+import { PDFView } from '@finanzritter/nativescript-pdf-view';
 import { registerElement } from 'nativescript-angular';
 registerElement('PDFView', () => PDFView);
 ```

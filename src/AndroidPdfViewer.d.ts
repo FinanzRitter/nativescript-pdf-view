@@ -1,9 +1,10 @@
-/// <reference path="./node_modules/tns-platform-declarations/android.d.ts" />
+/// <reference path="./node_modules/@nativescript/types-android/lib/android-29.d.ts"
 
 declare module com.github.barteksc.pdfviewer {
-  export class PDFView extends android.view.SurfaceView {
+  export class PDFView {
     fromFile(file: java.io.File): Configurator;
     fromUri(uri: android.net.Uri): Configurator;
+    public constructor(param0: globalAndroid.content.Context, param1: globalAndroid.util.AttributeSet);
   }
 
   export module listener {
@@ -45,6 +46,6 @@ declare class Configurator {
   onLoad(
     onLoadCompleteListener: pdfviewer.listener.OnLoadCompleteListener
   ): this;
-  autoSpacing(enable: boolean): this; 
+  autoSpacing(enable: boolean): this;
   swipeHorizontal(horizontal: boolean): this;
 }

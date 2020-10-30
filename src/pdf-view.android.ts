@@ -1,14 +1,12 @@
 /// <reference path="./AndroidPdfViewer.d.ts" />
-
 import pdfviewer = com.github.barteksc.pdfviewer;
-import * as fs from 'tns-core-modules/file-system';
-import * as http from 'tns-core-modules/http';
+import { Http, knownFolders } from '@nativescript/core';
 
 import { PDFViewCommon, srcProperty } from './pdf-view.common';
 
 export class PDFView extends PDFViewCommon {
   private promise: Promise<void>;
-  private tempFolder = fs.knownFolders.temp().getFolder('PDFViewer.temp/');
+  private tempFolder = knownFolders.temp().getFolder('PDFViewer.temp/');
 
   private onLoadHandler = (() => {
     const pdfViewRef = new WeakRef(this);
@@ -70,7 +68,7 @@ export class PDFView extends PDFViewCommon {
     this.tempFolder.clear().then(() => {
 
       // download to cache
-      const promise = this.promise = http
+      const promise = this.promise = Http
         .getFile(url, `${this.tempFolder.path}/${Date.now()}.pdf`)
         .then(file => {
           if (this.promise === promise) {  // make sure we haven't switched

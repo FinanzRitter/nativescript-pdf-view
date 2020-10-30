@@ -1,4 +1,4 @@
-import { Property, View } from 'tns-core-modules/ui/core/view';
+import { Property, View } from '@nativescript/core';
 export declare abstract class PDFViewCommon extends View {
     static loadEvent: string;
     enableAnnotationRendering: boolean;

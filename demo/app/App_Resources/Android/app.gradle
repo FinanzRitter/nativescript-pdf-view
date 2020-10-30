@@ -1,7 +1,7 @@
 android {
   defaultConfig {
     generatedDensities = []
-    applicationId = "com.merott.nativescriptpdfviewdemo"
+    applicationId = "com.finanzritter.nativescript.pdfviewdemo"
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
