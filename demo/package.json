@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Merott/nativescript-pdf-view.git"
+    "url": "https://github.com/FinanzRitter/nativescript-pdf-view.git"
   },
   "dependencies": {
     "@finanzritter/nativescript-pdf-view": "file:../src",
