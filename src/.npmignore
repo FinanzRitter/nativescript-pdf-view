@@ -1,5 +1,6 @@
 .vscode
 demo/
+demo-vue/
 screenshots/
 *.gif
 *.png
