@@ -1,3 +1,12 @@
 dependencies {
-    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+    implementation 'com.github.TalbotGooday:AndroidPdfViewer:3.1.0-beta.3'
+}
+repositories {
+    maven {
+        url 'https://jitpack.io'
+        content {
+            // Use Jitpack only for AndroidPdfViewer; the rest is hosted at jcenter.
+            includeGroup "com.github.TalbotGooday"
+        }
+    }
 }

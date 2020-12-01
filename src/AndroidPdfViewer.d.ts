@@ -5,6 +5,8 @@ declare module com.github.barteksc.pdfviewer {
     fromFile(file: java.io.File): Configurator;
     fromUri(uri: android.net.Uri): Configurator;
     public constructor(param0: globalAndroid.content.Context, param1: globalAndroid.util.AttributeSet);
+    public onAttachedToWindow(): void;
+    public isRecycled(): boolean;
   }
 
   export module listener {

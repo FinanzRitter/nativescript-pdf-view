@@ -4,6 +4,56 @@ import { Http, knownFolders } from '@nativescript/core';
 
 import { PDFViewCommon, srcProperty } from './pdf-view.common';
 
+@NativeClass
+class PDFViewSubclass extends pdfviewer.PDFView {
+    static constructorCalled: boolean = false;
+    private uri: globalAndroid.net.Uri;
+    private enableAnnotationRendering: boolean;
+    private onLoadHandler: any;
+    constructor(a, b) {
+        super(a, b);
+        PDFViewSubclass.constructorCalled = true;
+
+        // necessary when extending TypeScript constructors
+        return global.__native(this);
+    }
+    public setUri(uri: globalAndroid.net.Uri) {
+      this.uri = uri;
+    }
+
+    public setEnableAnnotationRendering(enable: boolean) {
+      this.enableAnnotationRendering = enable;
+    }
+
+    public setOnLoadHandler(func) {
+      this.onLoadHandler = func;
+    }
+
+    public drawPdf(): void {
+      if (this.uri != null) {
+        const defaultSpacingDP = 8;
+        this
+          .fromUri(this.uri)
+          .onLoad(this.onLoadHandler)
+          .spacing(defaultSpacingDP)
+          .enableAnnotationRendering(this.enableAnnotationRendering)
+          .fitEachPage(true)
+          .load();
+      }
+    }
+
+
+    // mimics the usage of AndroidPdfView and the onAttachedToWindow method in react-native-pdf at
+    // https://github.com/wonday/react-native-pdf/blob/master/android/src/main/java/org/wonday/pdf/PdfView.java#L207-L211
+    public onAttachedToWindow(): void {
+      super.onAttachedToWindow();
+      if (this.isRecycled()) {
+        this.drawPdf();
+      }
+    }
+}
+
+
 export class PDFView extends PDFViewCommon {
   private promise: Promise<void>;
   private tempFolder = knownFolders.temp().getFolder('PDFViewer.temp/');
@@ -19,7 +69,7 @@ export class PDFView extends PDFViewCommon {
   })();
 
   public get android() {
-    return this.nativeView as pdfviewer.PDFView;
+    return this.nativeView as PDFViewSubclass;
   }
 
   public set android(value) {
@@ -27,8 +77,7 @@ export class PDFView extends PDFViewCommon {
   }
 
   public createNativeView() {
-    // tslint:disable-next-line:no-unsafe-any
-    return new pdfviewer.PDFView(this._context, void 0);
+    return new PDFViewSubclass(this._context, void 0);
   }
 
   public [srcProperty.setNative](value: string) {
@@ -53,14 +102,10 @@ export class PDFView extends PDFViewCommon {
 
     const uri = android.net.Uri.parse(src);
 
-    const defaultSpacingDP = 8;
-    this.android
-      .fromUri(uri)
-      .onLoad(this.onLoadHandler)
-      .spacing(defaultSpacingDP)
-      .enableAnnotationRendering(this.enableAnnotationRendering)
-      .fitEachPage(true)
-      .load();
+    this.android.setUri(uri);
+    this.android.setEnableAnnotationRendering(this.enableAnnotationRendering);
+    this.android.setOnLoadHandler(this.onLoadHandler);
+    this.android.drawPdf();
   }
 
   private cacheThenLoad(url: string) {
