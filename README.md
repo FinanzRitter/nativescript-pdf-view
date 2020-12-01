@@ -49,18 +49,24 @@ registerElement('PDFView', () => PDFView);
 <PDFView [src]="src" (load)="onLoad()"></PDFView>
 ```
 
+### Vue.js NativeScript
+
+```ts
+import Vue from 'nativescript-vue';
+Vue.registerElement('PDFView', () => require('@finanzritter/nativescript-pdf-view').PDFView)
+```
+
+```html
+<PDFView :src="pdfUrl" :enableAnnotationRendering="true" />
+```
+
 ## Demo
 
 Check out the [demo](./demo) folder for a demo application using this plugin. You can run the demo by executing `npm run demo.ios` and `npm run demo.android` from the root directory of the project.
 
+## Demo Vue
 
-## Samples
-
-There are sample applications avalable:
-
-* *Plain TypeScript*: see [demo/](https://github.com/madmas/nativescript-pdf-view/tree/master/demo) folder in this repository
-* *NativeScript+Angular*: [nativescript-pdf-view-angular-sample](https://github.com/madmas/nativescript-pdf-view-angular-sample) repository
-* *NativeScript+VueJs*:  [nativescript-pdf-view-vue-sample](https://github.com/madmas/nativescript-pdf-view-vue-sample) repository
+Check out the [demo-vue](./demo-vue) folder for a demo application built with Vue.js using this plugin. You can run the demo by executing `npm run demo-vue.ios` and `npm run demo-vue.android` from the root directory of the project.
 
 ## Credits
 

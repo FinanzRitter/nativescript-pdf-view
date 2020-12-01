@@ -4,8 +4,12 @@ import { PDFViewCommon } from './pdf-view.common';
 declare class PDFViewSubclass extends pdfviewer.PDFView {
     static constructorCalled: boolean;
     private uri;
+    private enableAnnotationRendering;
+    private onLoadHandler;
     constructor(a: any, b: any);
     setUri(uri: globalAndroid.net.Uri): void;
+    setEnableAnnotationRendering(enable: boolean): void;
+    setOnLoadHandler(func: any): void;
     drawPdf(): void;
     onAttachedToWindow(): void;
 }
